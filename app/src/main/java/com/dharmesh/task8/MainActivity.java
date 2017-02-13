@@ -2,6 +2,7 @@ package com.dharmesh.task8;
 
 import android.app.ProgressDialog;
 import android.content.Context;
+import android.content.Intent;
 import android.nfc.Tag;
 import android.os.AsyncTask;
 import android.os.StrictMode;
@@ -124,12 +125,13 @@ public class MainActivity extends AppCompatActivity {
                     JSONObject data = data_main.getJSONObject(i);
 
 
-                    int Id = data.getInt("id");
+                    String Id = data.getString("id");
                     Log.d(TAG , "ID : "+id);
                     String Name = data.getString("name");
                     Log.d(TAG ,"Categories : "+Name);
 
                     Cat_Post p = new Cat_Post();
+                    p.setId(Id);
                     p.setName(Name);
                     Cat_List.add(p);
 
