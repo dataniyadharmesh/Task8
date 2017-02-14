@@ -1,6 +1,7 @@
 package com.dharmesh.task8;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,6 +10,8 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import static android.R.attr.start;
 
 /**
  * Created by DHARMESH on 13-02-2017.
@@ -39,12 +42,21 @@ public class Cat_Adapter extends ArrayAdapter<Cat_Post>{
 
     public View getView(int position, View contextView, ViewGroup viewGroup) {
         ViewHolder holder;
+        View view;
 
         if (contextView == null) {
 
             holder = new ViewHolder();
             contextView = LayoutInflater.from(context).inflate(layResource, viewGroup, false);
             holder.Name = (TextView) contextView.findViewById(R.id.txt_categories);
+            contextView.setOnClickListener( new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                    Intent intent =new Intent(context,ListView_Activity.class);
+                    context.startActivity(intent);
+
+                }
+            } );
             contextView.setTag(holder);
 
         } else {
