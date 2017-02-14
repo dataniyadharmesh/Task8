@@ -27,7 +27,7 @@ public class ListView_Activity extends AppCompatActivity {
 
     private ListView ls;
     ListView listView;
-    List_Post q;
+    List_Post list;
 
 
     @Override
@@ -35,9 +35,8 @@ public class ListView_Activity extends AppCompatActivity {
         super.onCreate( savedInstanceState );
         setContentView( R.layout.activity_list_view );
 
-        int gotid = getIntent().getIntExtra("pos", 1);
-
-        new List_Quotes().execute("http://rapidans.esy.es/test/getquotes.php?cat_id=" + gotid);
+        int getid = getIntent().getIntExtra("pos", 1);
+        new List_Quotes().execute("http://rapidans.esy.es/test/getquotes.php?cat_id=" + getid);
 
 
 
@@ -100,19 +99,19 @@ public class ListView_Activity extends AppCompatActivity {
 
             try {
 
-                JSONObject jsonObject1 = new JSONObject(s);
+                JSONObject rootObj = new JSONObject(s);
 
-                JSONArray jsonArray = jsonObject1.getJSONArray("data");
-                for (int i = 0; i < jsonArray.length(); i++) {
-                    JSONObject jsonObject = jsonArray.getJSONObject(i);
+                JSONArray ArrayData = rootObj.getJSONArray("data");
+                for (int i = 0; i < ArrayData.length(); i++) {
+                    JSONObject jsonObject = ArrayData.getJSONObject(i);
 
 
-                    q = new List_Post();
-                    q.setId(jsonObject.getInt("id"));
-                    q.setCat_id(jsonObject.getInt("cat_id"));
-                    q.setQuotes(jsonObject.getString("quotes"));
+                    list = new List_Post();
+                    list.setId(jsonObject.getInt("id"));
+                    list.setCat_id(jsonObject.getInt("cat_id"));
+                    list.setQuotes(jsonObject.getString("quotes"));
 
-                    quotesArrayList.add(q);
+                    quotesArrayList.add(list);
                 }
 
             } catch (JSONException e) {

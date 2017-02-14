@@ -8,6 +8,11 @@ public class List_Post {
 
     int id,cat_id;
     String quotes;
+    private static String quote;
+
+    public static String getQuote() {
+        return quote;
+    }
 
     public int getId() {
         return id;

@@ -1,6 +1,7 @@
 package com.dharmesh.task8;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -38,7 +39,7 @@ public class List_Adapter extends ArrayAdapter<List_Post> {
         TextView quotes;
     }
 
-    public View getView(int position, View contextView, ViewGroup viewGroup) {
+    public View getView(final int position, View contextView, ViewGroup viewGroup) {
        // Cat_Adapter.ViewHolder holder;
         View view;
         final ViewHolder hold;
@@ -55,15 +56,18 @@ public class List_Adapter extends ArrayAdapter<List_Post> {
         } else {
             hold = (ViewHolder) contextView.getTag();
         }
+
+        //final List_Post p = list_posts.get(position);
         hold.quotes.setText( list_posts.get(position).getQuotes());
-        /*holder.quotes.setOnClickListener(new View.OnClickListener() {
+
+        hold.quotes.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context,MainListActivity.class);
-                intent.putExtra("pos", quots.get(position).getQuotes());
-                context.startActivity(intent);
+                Intent intent = new Intent(v.getContext(), ReadAndShare.class).setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_MULTIPLE_TASK);
+                intent.putExtra("Quote", List_Post.getQuote());
+                v.getContext().startActivity(intent);
             }
-        });*/
+        });
      /*   List_Post p = list_posts.get(position);
         hold.quotes.setText(p.getQuotes());*/
 

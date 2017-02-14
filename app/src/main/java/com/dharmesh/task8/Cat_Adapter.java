@@ -37,7 +37,7 @@ public class Cat_Adapter extends ArrayAdapter<Cat_Post>{
         TextView  Name;
     }
 
-    public View getView(final  int position, View contextView, ViewGroup viewGroup) {
+    public View getView(final int position, View contextView, ViewGroup viewGroup) {
         ViewHolder holder;
         View view;
 
@@ -50,6 +50,8 @@ public class Cat_Adapter extends ArrayAdapter<Cat_Post>{
                 @Override
                 public void onClick(View view) {
                     Intent intent =new Intent(context,ListView_Activity.class);
+                //    intent.putExtra();
+                  //  intent.putExtra( "pos", cat_posts.getId() );
                     intent.putExtra("pos", cat_posts.get(position).getId());
                     context.startActivity(intent);
 

@@ -21,6 +21,8 @@
         </activity>
         <activity android:name=".Show_quotes">
         </activity>
+        <activity android:name=".ReadAndShare">
+        </activity>
     </application>
 
 </manifest>
