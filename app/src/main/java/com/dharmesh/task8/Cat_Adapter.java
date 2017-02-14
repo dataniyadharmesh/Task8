@@ -1,5 +1,4 @@
 package com.dharmesh.task8;
-
 import android.content.Context;
 import android.content.Intent;
 import android.view.LayoutInflater;
@@ -7,10 +6,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ArrayAdapter;
 import android.widget.TextView;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import static android.R.attr.start;
 
 /**
@@ -40,7 +37,7 @@ public class Cat_Adapter extends ArrayAdapter<Cat_Post>{
         TextView  Name;
     }
 
-    public View getView(int position, View contextView, ViewGroup viewGroup) {
+    public View getView(final  int position, View contextView, ViewGroup viewGroup) {
         ViewHolder holder;
         View view;
 
@@ -53,7 +50,9 @@ public class Cat_Adapter extends ArrayAdapter<Cat_Post>{
                 @Override
                 public void onClick(View view) {
                     Intent intent =new Intent(context,ListView_Activity.class);
+                    intent.putExtra("pos", cat_posts.get(position).getId());
                     context.startActivity(intent);
+
 
                 }
             } );

@@ -19,6 +19,8 @@
         </activity>
         <activity android:name=".ListView_Activity">
         </activity>
+        <activity android:name=".Show_quotes">
+        </activity>
     </application>
 
 </manifest>

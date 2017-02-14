@@ -148,10 +148,7 @@ public class MainActivity extends AppCompatActivity {
                 e.printStackTrace();
             }
 
-            /*ls = (ListView) findViewById(R.id.ls_items);
-            ad = new Post_adapter(this, R.layout.listed_items, postArrayList);
-            ls.setAdapter(ad);
-*/
+
             gridView= (GridView)findViewById(R.id.view_gridview);
             adapter = new Cat_Adapter(MainActivity.this,R.layout.layout_category,Cat_List);
             gridView.setAdapter(adapter);
