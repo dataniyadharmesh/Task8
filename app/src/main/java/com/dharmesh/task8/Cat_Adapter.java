@@ -34,7 +34,7 @@ public class Cat_Adapter extends ArrayAdapter<Cat_Post>{
 
     static class ViewHolder
     {
-        TextView  Name;
+        TextView  Name,id;
     }
 
     public View getView(final int position, View contextView, ViewGroup viewGroup) {
@@ -45,27 +45,32 @@ public class Cat_Adapter extends ArrayAdapter<Cat_Post>{
 
             holder = new ViewHolder();
             contextView = LayoutInflater.from(context).inflate(layResource, viewGroup, false);
+            holder.id = (TextView)contextView.findViewById(R.id.tv_data_id);
             holder.Name = (TextView) contextView.findViewById(R.id.txt_categories);
-            contextView.setOnClickListener( new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    Intent intent =new Intent(context,ListView_Activity.class);
-                //    intent.putExtra();
-                  //  intent.putExtra( "pos", cat_posts.getId() );
-                    intent.putExtra("pos", cat_posts.get(position).getId());
-                    context.startActivity(intent);
 
-
-                }
-            } );
             contextView.setTag(holder);
 
         } else {
             holder = (ViewHolder) contextView.getTag();
 
         }
+
+
         Cat_Post p = cat_posts.get(position);
         holder.Name.setText(p.getName());
+
+        contextView.setOnClickListener( new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent =new Intent(context,ListView_Activity.class);
+                //    intent.putExtra();
+                //  intent.putExtra( "pos", cat_posts.getId() );
+                intent.putExtra("pos", cat_posts.get(position).getId());
+                context.startActivity(intent);
+
+
+            }
+        } );
 
 
         return contextView;

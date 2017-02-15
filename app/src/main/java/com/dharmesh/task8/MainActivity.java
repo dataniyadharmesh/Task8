@@ -125,7 +125,7 @@ public class MainActivity extends AppCompatActivity {
                     JSONObject data = data_main.getJSONObject(i);
 
 
-                    String Id = data.getString("id");
+                    int Id = data.getInt("id");
                     Log.d(TAG , "ID : "+id);
                     String Name = data.getString("name");
                     Log.d(TAG ,"Categories : "+Name);

@@ -8,11 +8,11 @@ public class List_Post {
 
     int id,cat_id;
     String quotes;
-    private static String quote;
+  //  private static String quote;
 
-    public static String getQuote() {
-        return quote;
-    }
+  //  public static String getQuote() {
+  //      return quote;
+  //  }
 
     public int getId() {
         return id;
@@ -30,7 +30,7 @@ public class List_Post {
         this.cat_id = cat_id;
     }
 
-    public String getQuotes() {
+    public  String getQuotes() {
         return quotes;
     }
 

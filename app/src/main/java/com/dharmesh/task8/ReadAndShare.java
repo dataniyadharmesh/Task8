@@ -26,8 +26,8 @@ public class ReadAndShare extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent shareIntent = new Intent(Intent.ACTION_SEND);
-                shareIntent.setType("text/html");
-                shareIntent.putExtra(android.content.Intent.EXTRA_TEXT, Html.fromHtml("<p><b>Share this quote</b></p>"));
+                shareIntent.setType("text/plain");
+                shareIntent.putExtra(android.content.Intent.EXTRA_TEXT,data.getText());
                 startActivity( Intent.createChooser(shareIntent, "Share Via"));
             }
         });
